@@ -135,7 +135,7 @@ How about multiple question types?
 [CarrierWave]: https://github.com/jnicklas/carrierwave
 [Adding Form Fields Dynamically with jQuery]: http://www.mustbebuilt.co.uk/2012/07/27/adding-form-fields-dynamically-with-jquery/
 [Dynamically Add Input Fields To Form Using jQuery]: http://www.infotuts.com/dynamically-add-input-fields-to-form-jquery/
-[d3.js]: http://d3js.org/)
+[d3.js]: http://d3js.org/
 [Flot]: http://www.flotcharts.org/
 [Highcharts]: http://www.highcharts.com/
 [modal dialog]: http://www.ericmmartin.com/projects/simplemodal/
