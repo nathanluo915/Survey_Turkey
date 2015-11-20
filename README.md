@@ -1,3 +1,10 @@
+* Team Turkey: Nathan, Ian, and Zino
+* Description: Survey Gorilla is a site where users can create and vote on surveys, writing and selecting multiple choice answers to questions.
+* [Trello User Stories][https://trello.com/b/q3qIA2Qy/survey-gorilla-user-stories]
+* [Wireframes][https://turkey.mybalsamiq.com/projects/surveygorilla/grid]
+* To start, Zino is covering users and their registration/login, Ian is creating CRUD operations for surverys, and Nathan is creating CRUD operations for questions and answers. We'll be coming back together for the "take users" page and survey results and then splitting up accordingly, and then we'll come back together to discuss advanced features.
+
+
 # Survey Gorilla
 
 ## Learning Competencies
