@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   include BCrypt
 
   has_many :surveys
-  has_and_belongs_to_many :answers, foreign_key: :voter_id, dependent: :destroy
+  has_and_belongs_to_many :answers, dependent: :destroy
 
   validates :username, :password,presence:true
   validates :username, length:{in: 2..30}
