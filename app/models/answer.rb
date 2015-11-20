@@ -1,7 +1,8 @@
 class Answer < ActiveRecord::Base
-  has_many :answers_voters
-  has_many :voters, through: :answers_voters, source: :users
-  belongs_to  :question
+  has_and_belongs_to_many :voters, class_name: "User"
+  belongs_to :question
+  has_one :survey, through: :question
 
-
+  validates :content, presence: true
+  validates :content, length:{in:1..150}
 end
