@@ -13,3 +13,8 @@ post '/users' do
   end
 end
 
+get '/users/:user_id/surveys' do
+  @user=User.find(params[:user_id])
+  @surveys=@user.surveys
+  erb :'users/surveys'
+end

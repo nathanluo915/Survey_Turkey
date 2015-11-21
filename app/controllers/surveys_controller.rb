@@ -62,3 +62,8 @@ end
 #     erb :"surveys/populate_content"
 #   end
 # end
+get '/surveys/:survey_id' do
+  survey=Survey.find(params[:survey_id])
+  @survey_results=survey.compile_survey_result
+  erb :"surveys/show", layout:false
+end
