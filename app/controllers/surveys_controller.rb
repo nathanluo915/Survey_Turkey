@@ -31,7 +31,7 @@ post '/surveys' do
     @survey = current_user.surveys.build(title: params[:title], description: params[:description], user: current_user)
     @questions = params.select{|key,value| key.match(/q\d+\z/)}
     @answers = params.select{|key,value| key.match(/q\d+-/)}
-
+    binding.pry
     if @survey.save && !any_empty_value?(@questions) && !any_empty_value?(@answers)
       @survey.generate_survey(@questions, @answers)
       redirect "/users/#{current_user.id}"
@@ -48,6 +48,7 @@ end
 get '/surveys/:survey_id/result' do
   survey=Survey.find(params[:survey_id])
   @survey_results=survey.compile_survey_result
+  binding.pry
   erb :"surveys/detail", layout:false
 end
 

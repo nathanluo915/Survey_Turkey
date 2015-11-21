@@ -30,14 +30,10 @@ class Survey < ActiveRecord::Base
 
     questions.each do |index, content|
 
-      q = Question.new(content: content, survey: self)
+      q = Question.create(content: content, survey: self)
       answers_for_q = answers.select{|key,value| key.match("#{index}-")}
-
       answers_for_q.each do |answer_index, answer|
-
-        a = Answer.new(content: answer, question: q)
-        errors << a.errors.full_messages
-
+        a = Answer.create(content: answer, question: q)
       end
 
     end
