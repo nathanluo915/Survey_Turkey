@@ -37,7 +37,7 @@ $(document).ready(function() {
       answersForm.append(answerForm);
       var question_index = "q" + formsContainer.children().length;
       var answer_index = question_index + "-" + answersForm.children().length;
-      // debugger
+
       answersForm.children().last().attr({'name': answer_index});
 
     })

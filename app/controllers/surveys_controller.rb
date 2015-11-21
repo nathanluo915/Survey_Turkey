@@ -16,17 +16,30 @@ get '/surveys/new' do
   end
 end
 
+put '/surveys/:id' do
+  question_answers = params.select{|key,value| key.match(/question/)}
+  question_answers.each do |question_index, answer_id|
+    answer = Answer.find(answer_id)
+    current_user.answers << answer
+  end
+  redirect "/surveys/#{params[:id]}/result"
+end
+
+
 post '/surveys' do
   if logged_in?
-    survey = current_user.surveys.build(title: params[:title], description: params[:description], user: current_user)
-    questions = params.select{|key,value| key.match(/q\d+\z/)}
-    answers = params.select{|key,value| key.match(/q\d+-/)}
-    if survey.save
-      survey.generate_survey(questions, answers)
-      redirect "/users/#{current_user.id}"
-    else
+    @survey = current_user.surveys.build(title: params[:title], description: params[:description], user: current_user)
+    @questions = params.select{|key,value| key.match(/q\d+\z/)}
+    @answers = params.select{|key,value| key.match(/q\d+-/)}
 
+    if @survey.save && !any_empty_value?(@questions) && !any_empty_value?(@answers)
+      @survey.generate_survey(@questions, @answers)
+      redirect "/users/#{current_user.id}"
+    elsif Survey.exists?(@survey)
+      @survey.destroy
+      erb :"surveys/repopulate"
     end
+
   else
     redirect '/'
   end
@@ -39,6 +52,15 @@ get '/surveys/:survey_id/result' do
 end
 
 get '/surveys/:id' do
-  @survey = Survey.find(params[:id])
-  erb :'surveys/take'
+  if logged_in?
+    @survey = Survey.find(params[:id])
+    if !@survey.already_answered?
+      erb :"surveys/take"
+    else
+      redirect "/surveys/#{params[:id]}/result"
+    end
+  else
+    erb :"sessions/new"
+  end
 end
+

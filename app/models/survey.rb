@@ -24,26 +24,24 @@ class Survey < ActiveRecord::Base
     question_results
   end
 
+
   def generate_survey(questions, answers)
     errors = []
+
     questions.each do |index, content|
+
       q = Question.new(content: content, survey: self)
-      if q.save
-        answers_for_q = answers.select{|key,value| key.match("#{index}-")}
-        answers_for_q.each do |answer_index, answer|
-          a = Answer.new(content: answer, question: q)
+      answers_for_q = answers.select{|key,value| key.match("#{index}-")}
 
-          if !a.save
-            errors << a.errors.full_messages
-          end
+      answers_for_q.each do |answer_index, answer|
 
-        end
-      else
-        errors << q.errors.full_messages
+        a = Answer.new(content: answer, question: q)
+        errors << a.errors.full_messages
+
       end
+
     end
 
-    errors
   end
 
 end
