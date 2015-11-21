@@ -1,7 +1,28 @@
-<div>
-  <% if @surveys %>
-    <% @surveys.each do |surv|%>
-      <p><%= surv.title %></p>
-    <% end %>
-  <% end%>
+</div>
+  <div class="home_top_block">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <a id="home_create_button" href="/surveys/new" class="btn btn-default btn-lg btn-block">Create New Survey</a>
+      </div>
+    </div>
+  </div>
+<div id="content" class="container">
+  <div>
+    <table class="table table-hover">
+      <tr>
+        <th>Title</th>
+        <th>Creator</th>
+        <th>Description</th>
+      </tr>
+      <% if @surveys %>
+        <% @surveys.each do |surv|%>
+        <tr>
+          <td><%= surv.title %></td>
+          <td><%= surv.user.username%></td>
+          <td><%= surv.description%></td>
+        </tr>
+        <% end %>
+      <% end%>
+    </table>
+  </div>
 </div>

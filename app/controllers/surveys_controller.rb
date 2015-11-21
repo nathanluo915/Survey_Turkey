@@ -45,30 +45,8 @@ post '/surveys' do
   end
 end
 
-
-# post '/surveys/:survey_id/questions' do
-#   survey = Survey.find(params[:survey_id])
-#   @question = survey.questions.build(content: params[:question], survey: survey)
-#   if @question.save
-#     if request.xhr?
-#       erb :"surveys/question_partial", locals: {question: @question}, layout: false
-
-#     end
-#   else
-
-#   end
-# end
-
-# get '/surveys/:id/questions/new' do
-#   @survey = Survey.find(params[:id])
-#   if request.xhr?
-#     erb :"surveys/question_answer_inbox_partial", locals: {survey: @survey}, layout: false
-#   else
-#     erb :"surveys/populate_content"
-#   end
-# end
-get '/surveys/:survey_id ' do
+get '/surveys/:survey_id' do
   survey=Survey.find(params[:survey_id])
   @survey_results=survey.compile_survey_result
-  erb :"surveys/show", layout:false
+  erb :"surveys/detail", layout:false
 end
