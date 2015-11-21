@@ -31,10 +31,13 @@
 </head>
 <body>
   <% if logged_in? %>
+    <a href="/surveys">Home</a>
     <a href="/users/<%=session[:user_id]%>"><%= current_user.username %></a>
+    <a href="/sessions/logout">LogOut</a>
     <a href="/surveys/new">Create New Survey</a>
   <% else %>
-    <h1>Please log in</h1>
+    <a href="/surveys">Home</a>
+    <a href="/sessions/new">Login/Register</a>
   <% end %>
   <div id="content">
     <%= yield %>
