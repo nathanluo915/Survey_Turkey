@@ -22,7 +22,6 @@ post '/surveys' do
 
         if q.save
           answers = params.select{|key,value| key.match("#{index}-")}
-          binding.pry
           answers.each do |answer_index, answer|
             a = Answer.new(content: answer, question: q)
             if !a.save

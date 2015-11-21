@@ -1,0 +1,17 @@
+<h1><%= @survey.title %></h1>
+
+<% if @survey.description %>
+  <h3><%= @survey.description %></h3>
+<% end %>
+
+  <form action="">
+
+    <% @survey.questions.each do |question| %>
+      <h4><%= question.content %></h4>
+
+      <% question.answers.each do |answer| %>
+        <p><input type="radio" name="question-<%= question.id%>" value="<%= answer.id%>"><%= answer.content %></p>
+
+  </form>
+
+  <% end %>
