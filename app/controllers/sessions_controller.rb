@@ -6,15 +6,15 @@ post '/sessions' do
   user=User.find_by(username:params[:username])
   if user && user.password==params[:password]
     session[:user_id] = user.id
-    redirect "/"
+    redirect "/surveys"
   else
     error="Wrong_username_password_combination"
     redirect "/sessions/new?#{error}"
   end
 end
 
-delete '/sessions' do
+get '/sessions/logout' do
   session.clear
-  redirect '/'
+  redirect '/surveys'
 end
 
