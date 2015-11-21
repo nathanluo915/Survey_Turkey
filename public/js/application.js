@@ -12,7 +12,7 @@ $(document).ready(function() {
       formsContainer.append(questionForm);
 
       var question_index = "q" + formsContainer.children().length
-      var answer_index = question_index + "_1"
+      var answer_index = question_index + "-1"
 
       formsContainer.find("input[placeholder|='Question']").last().attr({'name': question_index});
       formsContainer.find("input[placeholder|='Answer']").last().attr({'name': answer_index});
@@ -36,8 +36,8 @@ $(document).ready(function() {
 
       answersForm.append(answerForm);
       var question_index = "q" + formsContainer.children().length;
-      var answer_index = question_index + "_" + answersForm.children().length;
-      debugger
+      var answer_index = question_index + "-" + answersForm.children().length;
+      // debugger
       answersForm.children().last().attr({'name': answer_index});
 
     })

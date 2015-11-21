@@ -1,0 +1,12 @@
+<h1><%=@user.username%></h1>
+<ul id="user_survey_list">
+  <%@surveys.each do |survey|%>
+    <li>
+      <h2><a class="user_survey_link" role="button" data-toggle="collapse" aria-expanded="false" aria-control="survey_collapse_<%=survey.id%>" href="#survey_collapse_<%=survey.id%>" data-surveyid="<%=survey.id%>"><%=survey.title%></a></h2>
+      <p><%=survey.description%></p>
+      <div class="collapse" id="survey_collapse_<%=survey.id%>">
+        <div class="well"></div>
+      </div>
+    </li>
+  <%end%>
+</ul>

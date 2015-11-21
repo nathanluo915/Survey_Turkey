@@ -1,0 +1,19 @@
+<%@survey_results.each do |question_content,question_compilation|%>
+  <h1><%=question_content%></h1>
+  <table class="table table-hover">
+    <tr>
+      <th>Option</th>
+      <th>Votes</th>
+    </tr>
+    <% question_compilation.each do |answer_content,vote|%>
+      <tr>
+        <td>
+          <%=answer_content%>
+        </td>
+        <td>
+          <%=vote%>
+        </td>
+      </tr>
+    <%end%>
+  </table>
+<%end%>

@@ -3,8 +3,7 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
 
-  has_many :surveys_users, foreign_key: "voter_id", dependent: :destroy
-  has_many :surveys, through: :surveys_users
+  has_many :surveys
   has_and_belongs_to_many :answers
 
   validates :username, :password,presence:true
