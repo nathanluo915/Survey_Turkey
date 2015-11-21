@@ -24,7 +24,7 @@
 
   <script src="/js/application.js"></script>
   <script src="/js/survey_stat.js"></script>
-
+  <script src="/js/modal_controller.js"></script>
 
   <title></title>
 </head>
@@ -43,7 +43,7 @@
           <li><a href="/users/<%=session[:user_id]%>"><%= current_user.username %></a></li>
           <li><a href="/sessions/logout">LogOut</a></li>
         <% else %>
-          <li><a href="/sessions/new">Login/Register</a></li>
+          <li><a href="#" id="navLogInRegisterButton" data-toggle="modal" data-target="#newSurveyForm">Login/Register</a></li>
         <% end %>
       </ul>
     </div>

@@ -1,21 +1,25 @@
 <h1><%= @survey.title %></h1>
 
 <% if @survey.description %>
-  <h3><%= @survey.description %></h3>
+  <p class="surveyDescription"><%= @survey.description %></p>
 <% end %>
 
 <form method="post" action="/surveys/<%=@survey.id %>">
   <input type="hidden" name="_method" value="put" />
   <% @survey.questions.each do |question| %>
-  <div class="question">
-    <h4><%= question.content %></h4>
 
+  <div class="question">
+    <p class="surveyQuestion"><%= question.content %></p>
     <% question.answers.each do |answer| %>
-      <p><input type="radio" name="question-<%= question.id%>" value="<%= answer.id%>"><%= answer.content %></p>
+      <div class="radio">
+        <label><input type="radio" name="question-<%= question.id%>" value="<%= answer.id%>"><%= answer.content %></label>
+      </div>
     <% end %>
   </div>
-  <% end %>
 
-  <input type="submit" value="Submit Survey" />
+  <% end %>
+  <div class="form-group">
+    <button type="submit" class="form-control btn btn-block btn-default" id="submit-survey-response-button">Submit Survey</button>
+  </div>
 </form>
 
