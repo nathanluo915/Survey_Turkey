@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function formCreation(){
   var formsContainer = $(".forms-container");
 
   $("#add-question").on("click", function(event){
@@ -18,9 +18,7 @@ $(document).ready(function() {
       formsContainer.find("input[placeholder|='Answer']").last().attr({'name': answer_index});
 
     }).fail(function(error){
-
     });
-
   });
 
 
@@ -32,17 +30,15 @@ $(document).ready(function() {
       url: '/answers/new'
     }).done(function(answerForm){
 
-      var answersForm = formsContainer.children().last().find(".answer-form");
+      var answersForm = formsContainer.find(".answer-form").last();
 
       answersForm.append(answerForm);
       var question_index = "q" + formsContainer.children().length;
       var answer_index = question_index + "-" + answersForm.children().length;
 
       answersForm.children().last().attr({'name': answer_index});
-
     })
-
   });
+}
 
-
-});
+$(document).ready(formCreation);

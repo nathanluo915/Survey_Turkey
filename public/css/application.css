@@ -14,6 +14,27 @@ body{
     background-position: center;
     background-repeat: no-repeat;
 }
+.form-inline .form-control{
+    width:100%;
+}
+.form-group{
+    margin-top:1.2em;
+}
+.registerForm{
+    border-left: 1px grey solid;
+}
+.surveyDescription{
+    font-size: 1.3em;
+}
+.surveyQuestion{
+    font-size: 1.1em;
+}
+#top-level-row-survey-creation{
+    padding:10px;
+}
+#submit-survey-response-button{
+    background-image: none;
+}
 #home_create_button{
     margin-top:200px;
     padding-top: 17px;

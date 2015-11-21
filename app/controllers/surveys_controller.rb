@@ -10,9 +10,9 @@ end
 
 get '/surveys/new' do
   if logged_in?
-    erb :"surveys/new"
+    erb :"surveys/new",layout: !request.xhr?
   else
-    erb :"sessions/new"
+    redirect '/sessions/new'
   end
 end
 

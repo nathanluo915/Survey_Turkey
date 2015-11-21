@@ -7,7 +7,7 @@ $(document).ready(function(){
       url:targetUrl
     }).done(function(result){
       var survey_id=$(event.target).attr("data-surveyid");
-      $("#survey_collapse_"+survey_id).children().first().append(result);
+      $("#survey_collapse_"+survey_id).children().first().html(result);
     }).fail(function(error){
       console.log(error);
     })
