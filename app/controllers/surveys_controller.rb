@@ -48,14 +48,13 @@ end
 get '/surveys/:survey_id/result' do
   survey=Survey.find(params[:survey_id])
   @survey_results=survey.compile_survey_result
-  binding.pry
   erb :"surveys/detail", layout:false
 end
 
 get '/surveys/:id' do
   if logged_in?
     @survey = Survey.find(params[:id])
-    if !@survey.already_answered?
+    if !@survey.already_answered?(current_user.id)
       erb :"surveys/take"
     else
       redirect "/surveys/#{params[:id]}/result"

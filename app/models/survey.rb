@@ -6,10 +6,11 @@ class Survey < ActiveRecord::Base
   validates :title, presence: true
   validates :title, length:{in: 1..100}
 
-  def already_answered?
+  def already_answered?(user_id)
     answer_id_arr=self.questions[0].answers.pluck(:id)
-    user=User.find(session[:id])
-    user.answers.exist?(answer_id: answer_id_arr)
+
+    user=User.find(user_id)
+    user.answers.exists?(id: answer_id_arr)
   end
 
   def compile_survey_result
