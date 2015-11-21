@@ -96,7 +96,7 @@ DEPENDENCIES
   activerecord
   activesupport
   bcrypt
-  bcrypt-ruby
+  bcrypt-ruby (~> 3.1.2)
   capybara
   database_cleaner (~> 1.4.1)
   factory_girl

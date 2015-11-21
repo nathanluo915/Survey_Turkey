@@ -1,0 +1,8 @@
+<div>
+  <% if !session[:user_id]%>
+    <a href="/sessions/new">Log In</a>
+    <a href="/users/new">Sign Up</a>
+  <% else %>
+    <h1> Welcome, <%= current_user.username %>! </h1>
+  <% end %>
+</div>

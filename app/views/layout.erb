@@ -18,8 +18,15 @@
   <title></title>
 </head>
 <body>
-<div id="content">
-  <%= yield %>
-</div>
+  <% if logged_in? %>
+    <a href="/surveys">Surveys</a>
+    <a href="/surveys/new">Create New Survey</a>
+  <% else %>
+    <h1>Please log in</h1>
+  <% end %>
+  <div id="content">
+    <%= yield %>
+  </div>
+
 </body>
 </html>

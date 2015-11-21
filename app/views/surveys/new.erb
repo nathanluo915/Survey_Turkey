@@ -1,0 +1,26 @@
+<div>
+  <form method="post" action="/surveys">
+    <div class="survey-form">
+      <input type="text" name="title" placeholder="Title" />
+      <input type="text" name="description" placeholder="Description (optional)">
+
+    </div>
+
+    <div class="forms-container">
+      <div class="question-form">
+        <input type="text" name="q1" placeholder="Question">
+
+        <div class="answer-form">
+          <input type="text" name="q1-1" placeholder="Answer">
+        </div>
+      </div>
+    </div>
+
+    <input id="add-answer" type="submit" name="add-answer" value="Add Answer">
+    <input id="add-question" type="submit" name="add-question" value="Add Question">
+    <input type="submit" value="Save (After you save, you cannot change the survey any more!)">
+  </form>
+</div>
+
+
+<!-- <a href="/surveys/show"></a> -->

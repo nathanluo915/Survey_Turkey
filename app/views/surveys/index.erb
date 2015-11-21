@@ -1,0 +1,7 @@
+<div>
+  <% if @surveys %>
+    <% @surveys.each do |surv|%>
+      <p><%= surv.title %></p>
+    <% end %>
+  <% end%>
+</div>
