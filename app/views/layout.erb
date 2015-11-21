@@ -31,7 +31,7 @@
 </head>
 <body>
   <% if logged_in? %>
-    <a href="/surveys">Surveys</a>
+    <a href="/users/<%=session[:user_id]%>"><%= current_user.username %></a>
     <a href="/surveys/new">Create New Survey</a>
   <% else %>
     <h1>Please log in</h1>

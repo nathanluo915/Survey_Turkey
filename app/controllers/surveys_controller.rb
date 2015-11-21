@@ -10,6 +10,7 @@ end
 
 post '/surveys' do
   if logged_in?
+    binding.pry
     survey = current_user.surveys.build(title: params[:title], description: params[:description], user: current_user)
     questions = params.select{|key,value| key.match(/q\d+\z/)}
     if survey.save
@@ -18,6 +19,7 @@ post '/surveys' do
 
         if q.save
           answers = params.select{|key,value| key.match("#{index}-")}
+          binding.pry
           answers.each do |answer_index, answer|
             a = Answer.new(content: answer, question: q)
             if !a.save

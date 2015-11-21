@@ -5,7 +5,7 @@ end
 post '/users' do
   user=User.new(params)
   if user.save
-    session[:id]=user.id
+    session[:user_id]=user.id
     redirect '/'
   else
     error=user.errors.full_messages
@@ -13,7 +13,7 @@ post '/users' do
   end
 end
 
-get '/users/:user_id/surveys' do
+get '/users/:user_id' do
   @user=User.find(params[:user_id])
   @surveys=@user.surveys
   erb :'users/surveys'
