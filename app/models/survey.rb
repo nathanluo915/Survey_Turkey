@@ -6,10 +6,11 @@ class Survey < ActiveRecord::Base
   validates :title, presence: true
   validates :title, length:{in: 1..100}
 
-  def already_answered?
+  def already_answered?(user_id)
     answer_id_arr=self.questions[0].answers.pluck(:id)
-    user=User.find(session[:id])
-    user.answers.exist?(answer_id: answer_id_arr)
+
+    user=User.find(user_id)
+    user.answers.exists?(id: answer_id_arr)
   end
 
   def compile_survey_result
@@ -24,5 +25,20 @@ class Survey < ActiveRecord::Base
     question_results
   end
 
+
+  def generate_survey(questions, answers)
+    errors = []
+
+    questions.each do |index, content|
+
+      q = Question.create(content: content, survey: self)
+      answers_for_q = answers.select{|key,value| key.match("#{index}-")}
+      answers_for_q.each do |answer_index, answer|
+        a = Answer.create(content: answer, question: q)
+      end
+
+    end
+
+  end
 
 end

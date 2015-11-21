@@ -1,0 +1,30 @@
+<div>
+  <form method="post" action="/surveys">
+    <div class="survey-form">
+      <input type="text" name="title" placeholder="Title" value="<%=@survey.title %>" />
+      <input type="text" name="description" placeholder="Description (optional)" value="<%= @survey.description %>">
+    </div>
+
+    <div class="forms-container">
+      <% @questions.each do |question, content| %>
+      <% answers = @answers.select{|key, value| key.match("#{question}-")}%>
+      <div class="question-form">
+        <input type="text" name="<%=question %>" placeholder="Question" value="<%= content %>">
+        <div class="answer-form">
+        <% answers.each do |index, answer|%>
+          <% if answer == "" %>
+          <span>Empty</span>
+          <% end %>
+          <input type="text" name="<%=index %>" placeholder="Answer" value="<%= answer %>">
+
+        <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <input id="add-answer" type="submit" name="add-answer" value="Add Answer">
+    <input id="add-question" type="submit" name="add-question" value="Add Question">
+    <input type="submit" value="Save (After you save, you cannot change the survey any more!)">
+  </form>
+</div>
