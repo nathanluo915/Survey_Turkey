@@ -19,8 +19,10 @@ $(document).ready(function(){
       method:"get",
       url:"/surveys/new"
     }).done(function(result){
-      $("#newModalForm").html(result);
-      formCreation();
+      if ($(".modal-body").children().length == 0){
+        $("#newModalForm").html(result);
+        formCreation();
+      }
     }).fail(function(error){
       console.log(error);
     });
