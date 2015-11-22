@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :answers
 
   validates :username, :password,presence:true
-  validates :username, length:{in: 4..30}
+  validates :username, length:{in: 1..30}
   validates :username, uniqueness: true
 
   def self.search(name)

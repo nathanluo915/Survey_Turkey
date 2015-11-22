@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="/css/application.css">
 <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
@@ -33,7 +33,7 @@
     <div class="container-fluid">
       <!-- <div class="collapse navbar-collapse"> -->
       <ul class="nav navbar-nav">
-        <li><a href="/surveys">toSurvey</a></li>
+        <li><a href="/surveys">ZinSurvey</a></li>
         <%if logged_in?%>
           <li><a href="/surveys/new">Create New Survey</a></li>
         <%end%>
@@ -60,6 +60,5 @@
   <div class="container">
     <%= yield %>
   </div>
-
 </body>
 </html>

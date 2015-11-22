@@ -14,6 +14,58 @@ body{
     background-position: center;
     background-repeat: no-repeat;
 }
+.home_bottom_block{
+    margin-top:20px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+    background-image:linear-gradient(to bottom,#fff 0,#DDFFFD 100%);
+}
+.team{
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    margin-top:20px;
+    padding-top:15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    /*background-image:linear-gradient(to bottom,#DDFFFD 0,#fff 100%);*/
+}
+.home_bottom_block a{
+    text-decoration: none;
+    color:#737373;
+    font-weight:400;
+}
+.home_middle_block{
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    margin-top:20px;
+    padding-top:15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.home_p{
+    font-size: 2em;
+}
+.center_line{
+    border-top:1px solid #BDBDBD;
+    width:30%;
+    margin:0 auto;
+}
+#title_2nd_part{
+    font-size: 1.5em;
+}
+.tablename{
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+}
+.tablename_secondline{
+    text-align: center;
+    padding-bottom: 10px;
+    font-family: 'Poiret One', cursive;
+}
 .form-inline .form-control{
     width:100%;
 }
@@ -24,10 +76,14 @@ body{
     border-left: 1px grey solid;
 }
 .surveyDescription{
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 .surveyQuestion{
-    font-size: 1.1em;
+    font-size: 1.5em;
+    margin-top: 25px;
+}
+.radio{
+    font-size: 1.2em;
 }
 .search-form{
     margin: 0;
@@ -45,6 +101,19 @@ body{
     padding: 0.3em;
 }
 
+.list-group-item{
+    font-family: 'Poiret One', cursive;
+    font-size:1.3em;
+}
+.list-group-item a{
+    text-decoration: none;
+}
+.well h1{
+    font-size: 1.5em;
+}
+.well p{
+    font-size: 1.2em;
+}
 
 #top-level-row-survey-creation{
     padding:10px;
@@ -60,3 +129,15 @@ body{
     font-family: 'Poiret One', cursive;
     background-image: linear-gradient(to bottom,#fff 0,#FFFFFF 100%);
 }
+#user_page_title{
+    font-family: 'Poiret One', cursive;
+    font-size:4em;
+    padding-bottom: 20px;
+}
+.error_page{
+    font-family: 'Poiret One', cursive;
+}
+.take_survey{
+    text-align: center;
+}
+

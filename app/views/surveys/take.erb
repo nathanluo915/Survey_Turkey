@@ -4,7 +4,7 @@
   <p class="surveyDescription"><%= @survey.description %></p>
 <% end %>
 
-<form method="post" action="/surveys/<%=@survey.id %>">
+<form method="post" action="/surveys/<%=@survey.id %>" class="take_survey">
   <input type="hidden" name="_method" value="put" />
   <% @survey.questions.each do |question| %>
 
