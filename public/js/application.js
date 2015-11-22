@@ -39,6 +39,19 @@ function formCreation(){
       answersForm.children().last().attr({'name': answer_index});
     })
   });
+
+  $("#undo-add").on("click", function(event){
+    event.preventDefault();
+
+
+    var lastQuestionForm = formsContainer.children().last();
+    if (lastQuestionForm.find(".answer-form").children().length == 1) {
+      lastQuestionForm.remove();
+    } else {
+      var lastAnswerForm = lastQuestionForm.find("input[placeholder|='Answer']").last();
+      lastAnswerForm.remove();
+    }
+  })
 }
 
 $(document).ready(formCreation);

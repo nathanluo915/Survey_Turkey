@@ -1,5 +1,5 @@
 helpers do
-  def any_empty_value?(hash)
-    hash.any?{|key, value| value == ""}
+  def invalid_collection?(hash)
+    hash.any?{|key, value| value == ""} || hash.length() < 1
   end
 end

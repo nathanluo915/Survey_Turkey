@@ -10,9 +10,12 @@
 
   <div class="question">
     <p class="surveyQuestion"><%= question.content %></p>
-    <% question.answers.each do |answer| %>
+    <% question.answers.each_with_index do |answer, index| %>
       <div class="radio">
-        <label><input type="radio" name="question-<%= question.id%>" value="<%= answer.id%>"><%= answer.content %></label>
+        <label><input type="radio" name="question-<%= question.id%>" value="<%= answer.id%>" <% if index == 0 %>
+          <%=checked="checked" %>
+          <% end %>
+          ><%= answer.content %></label>
       </div>
     <% end %>
   </div>

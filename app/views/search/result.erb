@@ -1,0 +1,18 @@
+<div>
+  <h1>Result:</h1>
+  <% if @users %>
+  <ul>
+    <% @users.each do |user|%>
+    <li><a href="/users/<%=user.id %>"><%= user.username %></a></li>
+    <% end %>
+  </ul>
+  <% elsif @surveys %>
+  <ul>
+    <% @surveys.each do |surv|%>
+    <li><a href="/surveys/<%=surv.id %>"><%= surv.title %></a></li>
+    <% end %>
+  </ul>
+  <% else%>
+    <p>Couldn't find any matching record...</p>
+  <% end %>
+</div>
