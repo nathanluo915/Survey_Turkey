@@ -6,6 +6,10 @@ class Survey < ActiveRecord::Base
   validates :title, presence: true
   validates :title, length:{in: 1..100}
 
+  def self.search(survey)
+    self.where("title LIKE ?", "%#{survey}%")
+  end
+
   def already_answered?(user_id)
     answer_id_arr=self.questions[0].answers.pluck(:id)
 
@@ -40,5 +44,7 @@ class Survey < ActiveRecord::Base
     end
 
   end
+
+
 
 end

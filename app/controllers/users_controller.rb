@@ -15,6 +15,6 @@ end
 
 get '/users/:user_id' do
   @user=User.find(params[:user_id])
-  @surveys=@user.surveys
+  @surveys=@user.surveys.order(created_at: :desc)
   erb :'users/surveys'
 end

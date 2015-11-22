@@ -29,6 +29,23 @@ body{
 .surveyQuestion{
     font-size: 1.1em;
 }
+.search-form{
+    margin: 0;
+    padding: 0px;
+}
+.search-box{
+    height: 2em;
+}
+.search-box-holder{
+    margin: 0;
+    padding-top: .2em;
+}
+.search-button{
+    height: 2em;
+    padding: 0.3em;
+}
+
+
 #top-level-row-survey-creation{
     padding:10px;
 }

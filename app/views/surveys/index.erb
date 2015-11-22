@@ -38,7 +38,7 @@
         <% @surveys.each do |surv|%>
         <tr>
           <td><a href="/surveys/<%= surv.id %>"><%= surv.title %></a></td>
-          <td><%= surv.user.username%></td>
+          <td><a href="/users/<%= surv.user.id %>"><%= surv.user.username%></a></td>
           <td><%= surv.description%></td>
         </tr>
         <% end %>

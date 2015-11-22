@@ -32,10 +32,10 @@ post '/surveys' do
     @questions = params.select{|key,value| key.match(/q\d+\z/)}
     @answers = params.select{|key,value| key.match(/q\d+-/)}
 
-    if @survey.save && !any_empty_value?(@questions) && !any_empty_value?(@answers)
+    if @survey.save && !invalid_collection?(@questions) && !invalid_collection?(@answers)
       @survey.generate_survey(@questions, @answers)
       redirect "/users/#{current_user.id}"
-    elsif Survey.exists?(@survey)
+    elsif @survey.persisted?
       @survey.destroy
       erb :"surveys/repopulate"
     end
