@@ -14,7 +14,7 @@
 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="newSurveyFormLabel">Create New Survey</h4>
+            <h4 class="modal-title" id="newSurveyFormLabel">ZIN Survey</h4>
           </div>
           <div class="modal-body" id="newModalForm">
           </div>
@@ -23,26 +23,49 @@
       </div>
     </div>
 
-
-
   </div>
-<div id="content" class="container">
-  <div>
-    <table class="table table-hover">
-      <tr>
-        <th>Title</th>
-        <th>Creator</th>
-        <th>Description</th>
-      </tr>
-      <% if @surveys %>
-        <% @surveys.each do |surv|%>
+
+<div id="content" >
+  <div class="home_middle_block container">
+    <h1 class="home_title"><span id="titile_1st_part">ZIN</span><span id="title_2nd_part">S</span>URVEY</h1>
+    <p class="home_p">ZinSurvey is a free web service for users to host their online surveys and provide answers for others' surveys. Our goal is to build a community where people can exchange opinions and gather information in the most effecient manner.</p>
+  </div>
+
+  <div class="center_line"></div>
+
+  <div class="home_bottom_block">
+    <div class="container">
+      <h1 class="tablename">Open Surveys</h1>
+      <p class="tablename_secondline">Choose a survey to answer from below</p>
+      <table class="table table-hover table-bordered">
         <tr>
-          <td><a href="/surveys/<%= surv.id %>"><%= surv.title %></a></td>
-          <td><a href="/users/<%= surv.user.id %>"><%= surv.user.username%></a></td>
-          <td><%= surv.description%></td>
+          <th>Survey Title</th>
+          <th>Creator</th>
+          <th>Description</th>
         </tr>
-        <% end %>
-      <% end%>
-    </table>
+        <% if @surveys %>
+          <% @surveys.each do |surv|%>
+          <tr>
+            <td><a href="/surveys/<%= surv.id %>"><%= surv.title %></a></td>
+            <td><a href="/users/<%= surv.user.id %>"><%= surv.user.username%></a></td>
+            <td><%= surv.description%></td>
+          </tr>
+          <% end %>
+        <% end%>
+      </table>
+    </div>
+  </div>
+
+  <div class="team">
+    <div class="container">
+      <h1 class="team_header">Team ZIN</h1>
+      <p>Check out our talented team behind ZIN Survey</p>
+      <h2>Zino Hu</h2>
+      <p>Github: <a href="https://github.com/zinosama">https://github.com/zinosama</a></p>
+      <h2>Ian Lockwood</h2>
+      <p>Github: <a href="https://github.com/IanLockwood">https://github.com/IanLockwood</a></p>
+      <h2>Nathan Luo</h2>
+      <p>Github: <a href="https://github.com/nathanluo112">https://github.com/nathanluo112</a></p>
+    </div>
   </div>
 </div>

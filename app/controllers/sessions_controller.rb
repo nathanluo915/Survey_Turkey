@@ -9,7 +9,7 @@ post '/sessions' do
     redirect "/surveys"
   else
     error="Wrong_username_password_combination"
-    redirect "/sessions/new?#{error}"
+    redirect "/users/error?error=#{error}"
   end
 end
 

@@ -9,8 +9,13 @@ post '/users' do
     redirect '/'
   else
     error=user.errors.full_messages
-    redirect "/users/new?#{error}"
+    redirect "/users/error?error=#{error}"
   end
+end
+
+get '/users/error' do
+  @error=params[:error]
+  erb :"users/error"
 end
 
 get '/users/:user_id' do
