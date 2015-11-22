@@ -1,4 +1,5 @@
-* Team Turkey: Nathan, Ian, and Zino
+* Team ZIN Survey: Zino, Ian, and Nathan
+* Team name: Z(ino)I(an)N(athan)
 * Description: Survey Gorilla is a site where users can create and vote on surveys, writing and selecting multiple choice answers to questions.
 * Trello User Stories: https://trello.com/b/q3qIA2Qy/survey-gorilla-user-stories
 * Wireframes: https://turkey.mybalsamiq.com/projects/surveygorilla/grid
