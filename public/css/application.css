@@ -75,6 +75,11 @@ body{
 .registerForm{
     border-left: 1px grey solid;
 }
+
+.invalid {
+    background-color: rgba(255,0,0,0.4);
+}
+
 .surveyDescription{
     font-size: 1.2em;
 }
