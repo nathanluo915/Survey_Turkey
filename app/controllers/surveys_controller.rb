@@ -45,8 +45,21 @@ post '/surveys' do
   end
 end
 
-get '/surveys/:survey_id/result' do
-  survey=Survey.find(params[:survey_id])
+delete '/surveys/:id' do
+  survey = Survey.find(params[:id])
+  if survey.destroy
+    redirect "/users/#{current_user.id }"
+  else
+    @user = survey.user
+    @surveys = @user.surveys
+    @errors = survey.errors.full_messages
+    erb :"users/surveys"
+  end
+
+end
+
+get '/surveys/:id/result' do
+  survey=Survey.find(params[:id])
   @survey_results=survey.compile_survey_result
 
   if request.xhr?

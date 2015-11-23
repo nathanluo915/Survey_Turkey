@@ -18,8 +18,8 @@ get '/users/error' do
   erb :"users/error"
 end
 
-get '/users/:user_id' do
-  @user=User.find(params[:user_id])
+get '/users/:id' do
+  @user=User.find(params[:id])
   @surveys=@user.surveys.order(created_at: :desc)
   erb :'users/surveys'
 end
