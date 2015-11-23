@@ -80,7 +80,8 @@ body{
 }
 .surveyQuestion{
     font-size: 1.5em;
-    margin-top: 25px;
+    margin-top: 3em;
+    font-family: 'Poiret One', cursive;
 }
 .radio{
     font-size: 1.2em;
@@ -120,6 +121,8 @@ body{
 }
 #submit-survey-response-button{
     background-image: none;
+    margin-top: 3em;
+    margin-bottom: 5em;
 }
 #home_create_button{
     margin-top:200px;
@@ -140,4 +143,6 @@ body{
 .take_survey{
     text-align: center;
 }
-
+.survey_result_question{
+        font-family: 'Poiret One', cursive;
+}
