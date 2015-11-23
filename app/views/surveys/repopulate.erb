@@ -18,14 +18,16 @@
         <div class="form-group col-sm-12">
           <label>Question <%= i %></label>
           <% i+=1 %>
-          <input type="text" name="<%= question_index %>" placeholder="Question" class="form-control">
+          <input type="text" name="<%= question_index %>" placeholder="Question" class="form-control <% if invalid_content?(content) %> invalid<% end %>" value="<%= content %>">
         </div>
         <% answers = @answers.select{|a| a.match("#{question_index}-")} %>
         <div class="answer-form form-group col-sm-4">
-          answers.each_with_index
-          <input type="text" name="q1-1" placeholder="Answer" class="form-control">
+          <% answers.each do |index, answer| %>
+          <input type="text" name="<%= index %>" placeholder="Answer" class="form-control <% if invalid_content?(answer) %> invalid <% end %>" value="<%= answer %>">
+          <% end %>
         </div>
       </div>
+      <% end %>
     </div>
 
     <div class="form-group row">

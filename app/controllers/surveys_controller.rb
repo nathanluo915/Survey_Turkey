@@ -37,8 +37,8 @@ post '/surveys' do
       redirect "/users/#{current_user.id}"
     elsif @survey.persisted?
       @survey.destroy
-      erb :"surveys/repopulate"
     end
+    erb :"surveys/repopulate"
 
   else
     redirect '/'
