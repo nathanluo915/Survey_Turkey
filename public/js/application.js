@@ -16,7 +16,8 @@ function formCreation(){
 
       formsContainer.find("input[placeholder|='Question']").last().attr({'name': question_index});
       formsContainer.find("input[placeholder|='Answer']").last().attr({'name': answer_index});
-
+      var questionIndexTitle = "Question " + formsContainer.children().length;
+      formsContainer.children().last().find("label").html(questionIndexTitle);
     }).fail(function(error){
     });
   });

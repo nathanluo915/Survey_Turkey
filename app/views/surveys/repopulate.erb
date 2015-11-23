@@ -1,30 +1,40 @@
-<div>
-  <form method="post" action="/surveys">
-    <div class="survey-form">
-      <input type="text" name="title" placeholder="Title" value="<%=@survey.title %>" />
-      <input type="text" name="description" placeholder="Description (optional)" value="<%= @survey.description %>">
+<div class="row" id="top-level-row-survey-creation">
+  <form class="form-inline" method="post" action="/surveys">
+    <div class="survey-form row">
+      <div class="form-group col-sm-12">
+        <label for="title">Survey Title</label>
+        <input type="text" name="title" placeholder="Survey Title" class="form-control" value="<%= @survey.title%>">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="description">Description</label>
+        <textarea type="text" name="description" placeholder="Survey Description (optional)" rows="4" class="form-control"><%= @survey.description %></textarea>
+      </div>
     </div>
 
-    <div class="forms-container">
-      <% @questions.each do |question, content| %>
-      <% answers = @answers.select{|key, value| key.match("#{question}-")}%>
+    <div class="forms-container row">
+      <% i = 1 %>
+      <% @questions.each do |question_index, content| %>
       <div class="question-form">
-        <input type="text" name="<%=question %>" placeholder="Question" value="<%= content %>">
-        <div class="answer-form">
-        <% answers.each do |index, answer|%>
-          <% if answer == "" %>
-          <span>Empty</span>
-          <% end %>
-          <input type="text" name="<%=index %>" placeholder="Answer" value="<%= answer %>">
-
-        <% end %>
+        <div class="form-group col-sm-12">
+          <label>Question <%= i %></label>
+          <% i+=1 %>
+          <input type="text" name="<%= question_index %>" placeholder="Question" class="form-control">
+        </div>
+        <% answers = @answers.select{|a| a.match("#{question_index}-")} %>
+        <div class="answer-form form-group col-sm-4">
+          answers.each_with_index
+          <input type="text" name="q1-1" placeholder="Answer" class="form-control">
         </div>
       </div>
-      <% end %>
     </div>
 
-    <input id="add-answer" type="submit" name="add-answer" value="Add Answer">
-    <input id="add-question" type="submit" name="add-question" value="Add Question">
-    <input type="submit" value="Save (After you save, you cannot change the survey any more!)">
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <a href="#" id="add-answer" type="button" name="add-answer" class="btn btn-md btn-default">Add Answer</a>
+        <a href="#" id="add-question" type="submit" name="add-question" class="btn btn-md btn-default">Add Question</a>
+        <a href="#" id="undo-add" type="submit" name="undo-add" class="btn btn-md btn-default">Undo</a>
+        <button id="submit-new-survey" type="submit" class="btn btn-md btn-default">Create</button>
+      </div>
+    </div>
   </form>
 </div>
