@@ -14,6 +14,7 @@ function formCreation(){
       var question_index = "q" + formsContainer.children().length
       var answer_index = question_index + "-1"
 
+      formsContainer.children().last().find("label").html("Question " + formsContainer.children().length);
       formsContainer.find("input[placeholder|='Question']").last().attr({'name': question_index});
       formsContainer.find("input[placeholder|='Answer']").last().attr({'name': answer_index});
       var questionIndexTitle = "Question " + formsContainer.children().length;
